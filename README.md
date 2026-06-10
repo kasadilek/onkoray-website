@@ -34,10 +34,16 @@ Dann im Browser: http://localhost:4178 · Beenden mit `Strg + C`.
 ## Logo
 Offizielles Vektor-Logo aus eurem App-Repo (`github.com/KaiUweHella/onkoray`), Farbe Sage `#7da48a`.
 
+## Rechtliches & Datenschutz
+- `impressum.html` und `datenschutz.html` sind als **Entwürfe** angelegt (Design wie die Hauptseite).
+  Platzhalter `[…]` (Adresse, Telefon, ggf. Berufsangaben) bitte ausfüllen und vor breitem Teilen
+  rechtlich prüfen lassen. Verlinkt im Footer.
+- Schriftart ist **lokal gehostet** (`assets/fonts/`) — keine Google-Fonts-/CDN-Aufrufe, keine
+  Datenübertragung an Dritte. Die Seite ist vollständig eigenständig.
+
 ## Offene Punkte
 - **Anmelde-Formular** sendet noch nichts ab (reine Frontend-Demo). Für echten Versand: Dienst wie
-  Formspree/Buttondown anbinden oder kleines Backend.
-- **Impressum & Datenschutz** fehlen noch (rechtlich Pflicht vor Veröffentlichung).
+  Formspree/Buttondown anbinden oder kleines Backend — dann Datenschutz-Abschnitt 5 ergänzen.
 - Kontakt-Mailadresse `kontakt@onkoray.de` ist ein Platzhalter — bei Bedarf anpassen.
 
 ## Hinweis
