@@ -19,6 +19,7 @@
         "uses-long-cache-ttl": "off",
         "unused-javascript": "off",
         "csp-xss": "off",
+        "forced-reflow-insight": "off",
         "network-dependency-tree-insight": "off",
         "render-blocking-insight": "off",
         "render-blocking-resources": "off",
