@@ -1,5 +1,11 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const basePath =
+  import.meta.env.BASE_URL === "/"
+    ? ""
+    : import.meta.env.BASE_URL.replace(/\/$/, "");
+const withBase = (path: string) => `${basePath}${path}`;
 ---
 
 <BaseLayout
@@ -113,7 +119,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
         die Übertragung zu schützen.
       </p>
 
-      <a class="back-link" href="/">Zurück zur Startseite</a>
+      <a class="back-link" href={withBase("/")}>Zurück zur Startseite</a>
     </article>
   </div>
 </BaseLayout>

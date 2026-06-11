@@ -14,6 +14,8 @@ const site =
   process.env.PUBLIC_SITE_URL ??
   process.env.SITE_URL ??
   `http://localhost:${process.env.PORT ?? 4321}`;
+const basePath =
+  process.env.PUBLIC_BASE_PATH ?? process.env.BASE_PATH ?? undefined;
 
 // Enable the Vercel adapter only when actually deploying to Vercel.
 const useVercel = process.env.VERCEL === "1" || process.env.USE_VERCEL === "1";
@@ -21,6 +23,7 @@ const useVercel = process.env.VERCEL === "1" || process.env.USE_VERCEL === "1";
 // https://astro.build/config
 export default defineConfig({
   site,
+  ...(basePath ? { base: basePath } : {}),
   output: "static",
 
   ...(useVercel ? { adapter: vercel({ imageService: true }) } : {}),

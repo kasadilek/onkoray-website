@@ -1,12 +1,25 @@
+---
+const basePath =
+  import.meta.env.BASE_URL === "/"
+    ? ""
+    : import.meta.env.BASE_URL.replace(/\/$/, "");
+const withBase = (path: string) => `${basePath}${path}`;
+---
+
 <footer class="site-foot">
   <div class="site-wrap site-foot__grid">
     <div>
       <a
         class="site-logo site-foot__logo"
-        href="/"
+        href={withBase("/")}
         aria-label="OnkoRay Startseite"
       >
-        <img src="/assets/img/onkoray-mark.svg" alt="" width="44" height="44" />
+        <img
+          src={withBase("/assets/img/onkoray-mark.svg")}
+          alt=""
+          width="44"
+          height="44"
+        />
         <span>OnkoRay</span>
       </a>
       <p>
@@ -17,19 +30,19 @@
 
     <nav aria-label="Footer Navigation">
       <h2>Entdecken</h2>
-      <a href="/#so">Ablauf</a>
-      <a href="/#funktionen">Funktionen</a>
-      <a href="/#begleiter">Begleiter</a>
-      <a href="/#sicherheit">Sicherheit</a>
-      <a href="/#faq">FAQ</a>
+      <a href={withBase("/#so")}>Ablauf</a>
+      <a href={withBase("/#funktionen")}>Funktionen</a>
+      <a href={withBase("/#begleiter")}>Begleiter</a>
+      <a href={withBase("/#sicherheit")}>Sicherheit</a>
+      <a href={withBase("/#faq")}>FAQ</a>
     </nav>
 
     <nav aria-label="Kontakt und Rechtliches">
       <h2>Kontakt</h2>
-      <a href="/#dabei">Dabei sein</a>
+      <a href={withBase("/#dabei")}>Dabei sein</a>
       <a href="mailto:kontakt@onkoray.de">kontakt@onkoray.de</a>
-      <a href="/impressum/">Impressum</a>
-      <a href="/datenschutz/">Datenschutz</a>
+      <a href={withBase("/impressum/")}>Impressum</a>
+      <a href={withBase("/datenschutz/")}>Datenschutz</a>
     </nav>
   </div>
 

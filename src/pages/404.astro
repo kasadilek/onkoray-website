@@ -2,6 +2,12 @@
 export const prerender = true;
 
 import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const basePath =
+  import.meta.env.BASE_URL === "/"
+    ? ""
+    : import.meta.env.BASE_URL.replace(/\/$/, "");
+const withBase = (path: string) => `${basePath}${path}`;
 ---
 
 <BaseLayout
@@ -17,7 +23,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
         Vielleicht wurde sie verschoben oder der Link ist veraltet. Zur
         Startseite findest du wieder zurück.
       </p>
-      <a class="back-link" href="/">Zur Startseite</a>
+      <a class="back-link" href={withBase("/")}>Zur Startseite</a>
     </div>
   </div>
 </BaseLayout>

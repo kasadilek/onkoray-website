@@ -11,46 +11,66 @@ const trustItems = [
   ["Ärztlich entwickelt", "Aus der Radioonkologie"],
 ];
 
+const basePath =
+  import.meta.env.BASE_URL === "/"
+    ? ""
+    : import.meta.env.BASE_URL.replace(/\/$/, "");
+const assetPath = (path: string) => `${basePath}${path}`;
+const assetSrcset = (entries: [string, string][]) =>
+  entries.map(([path, width]) => `${assetPath(path)} ${width}`).join(", ");
+
 const imageMeta = {
   dashboard: {
-    fallback: "/assets/screens/dashboard.png",
-    srcset:
-      "/assets/optimized/dashboard-360.webp 360w, /assets/optimized/dashboard-640.webp 640w",
+    fallback: assetPath("/assets/screens/dashboard.png"),
+    srcset: assetSrcset([
+      ["/assets/optimized/dashboard-360.webp", "360w"],
+      ["/assets/optimized/dashboard-640.webp", "640w"],
+    ]),
     width: 1506,
     height: 1564,
   },
   profil: {
-    fallback: "/assets/screens/profil.png",
-    srcset:
-      "/assets/optimized/profil-360.webp 360w, /assets/optimized/profil-640.webp 640w",
+    fallback: assetPath("/assets/screens/profil.png"),
+    srcset: assetSrcset([
+      ["/assets/optimized/profil-360.webp", "360w"],
+      ["/assets/optimized/profil-640.webp", "640w"],
+    ]),
     width: 1374,
     height: 1566,
   },
   therapie: {
-    fallback: "/assets/screens/therapie.png",
-    srcset:
-      "/assets/optimized/therapie-360.webp 360w, /assets/optimized/therapie-640.webp 640w",
+    fallback: assetPath("/assets/screens/therapie.png"),
+    srcset: assetSrcset([
+      ["/assets/optimized/therapie-360.webp", "360w"],
+      ["/assets/optimized/therapie-640.webp", "640w"],
+    ]),
     width: 1662,
     height: 1558,
   },
   nachsorge: {
-    fallback: "/assets/screens/nachsorge.png",
-    srcset:
-      "/assets/optimized/nachsorge-360.webp 360w, /assets/optimized/nachsorge-640.webp 640w",
+    fallback: assetPath("/assets/screens/nachsorge.png"),
+    srcset: assetSrcset([
+      ["/assets/optimized/nachsorge-360.webp", "360w"],
+      ["/assets/optimized/nachsorge-640.webp", "640w"],
+    ]),
     width: 922,
     height: 1576,
   },
   onkelray: {
-    fallback: "/assets/img/onkelray.png",
-    srcset:
-      "/assets/optimized/onkelray-96.webp 96w, /assets/optimized/onkelray-192.webp 192w",
+    fallback: assetPath("/assets/img/onkelray.png"),
+    srcset: assetSrcset([
+      ["/assets/optimized/onkelray-96.webp", "96w"],
+      ["/assets/optimized/onkelray-192.webp", "192w"],
+    ]),
     width: 280,
     height: 586,
   },
   tanteray: {
-    fallback: "/assets/img/tanteray.png",
-    srcset:
-      "/assets/optimized/tanteray-96.webp 96w, /assets/optimized/tanteray-192.webp 192w",
+    fallback: assetPath("/assets/img/tanteray.png"),
+    srcset: assetSrcset([
+      ["/assets/optimized/tanteray-96.webp", "96w"],
+      ["/assets/optimized/tanteray-192.webp", "192w"],
+    ]),
     width: 280,
     height: 586,
   },
@@ -191,7 +211,7 @@ const faqs = [
 <BaseLayout
   title="OnkoRay — Deine Diagnose verstehen. An deiner Seite."
   description={description}
-  image="/assets/screens/dashboard.png"
+  image={assetPath("/assets/screens/dashboard.png")}
 >
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero__scene" aria-hidden="true">
