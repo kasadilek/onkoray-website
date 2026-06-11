@@ -4,6 +4,7 @@
     "runners": ["axe", "htmlcs"],
     "timeout": 30000,
     "wait": 500,
+    "levelCapWhenNeedsReview": "warning",
     "viewport": { "width": 1440, "height": 900 },
     "chromeLaunchConfig": {
       "args": ["--no-sandbox"]

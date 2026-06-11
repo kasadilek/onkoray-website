@@ -11,6 +11,51 @@ const trustItems = [
   ["Ärztlich entwickelt", "Aus der Radioonkologie"],
 ];
 
+const imageMeta = {
+  dashboard: {
+    fallback: "/assets/screens/dashboard.png",
+    srcset:
+      "/assets/optimized/dashboard-360.webp 360w, /assets/optimized/dashboard-640.webp 640w",
+    width: 1506,
+    height: 1564,
+  },
+  profil: {
+    fallback: "/assets/screens/profil.png",
+    srcset:
+      "/assets/optimized/profil-360.webp 360w, /assets/optimized/profil-640.webp 640w",
+    width: 1374,
+    height: 1566,
+  },
+  therapie: {
+    fallback: "/assets/screens/therapie.png",
+    srcset:
+      "/assets/optimized/therapie-360.webp 360w, /assets/optimized/therapie-640.webp 640w",
+    width: 1662,
+    height: 1558,
+  },
+  nachsorge: {
+    fallback: "/assets/screens/nachsorge.png",
+    srcset:
+      "/assets/optimized/nachsorge-360.webp 360w, /assets/optimized/nachsorge-640.webp 640w",
+    width: 922,
+    height: 1576,
+  },
+  onkelray: {
+    fallback: "/assets/img/onkelray.png",
+    srcset:
+      "/assets/optimized/onkelray-96.webp 96w, /assets/optimized/onkelray-192.webp 192w",
+    width: 280,
+    height: 586,
+  },
+  tanteray: {
+    fallback: "/assets/img/tanteray.png",
+    srcset:
+      "/assets/optimized/tanteray-96.webp 96w, /assets/optimized/tanteray-192.webp 192w",
+    width: 280,
+    height: 586,
+  },
+};
+
 const steps = [
   {
     title: "Arztbrief hochladen",
@@ -31,7 +76,7 @@ const features = [
     eyebrow: "Deinen Befund verstehen",
     title: "Deine Diagnose, ruhig und klar erklärt.",
     text: "OnkoRay zeigt dir dein Risikoprofil und ordnet Begriffe aus dem Arztbrief in Alltagssprache ein. Jede medizinische Aussage bleibt nachvollziehbar.",
-    image: "/assets/screens/dashboard.png",
+    image: imageMeta.dashboard,
     alt: "OnkoRay Dashboard mit verständlicher Einordnung der Diagnose",
     bullets: [
       "Werte und Fachbegriffe ohne Nachschlagen verstehen",
@@ -43,7 +88,7 @@ const features = [
     eyebrow: "Durch die Therapie begleitet",
     title: "Alles Wichtige für den nächsten Termin parat.",
     text: "Halte fest, wie es dir geht: Stimmung, Symptome, Termine und offene Fragen. So wird aus vielen Einzelnotizen ein ruhiger Überblick.",
-    image: "/assets/screens/therapie.png",
+    image: imageMeta.therapie,
     alt: "Therapie-Ansicht mit Stimmungs- und Symptomtracking",
     bullets: [
       "Stimmungs- und Symptomtagebuch",
@@ -55,7 +100,7 @@ const features = [
     eyebrow: "Sicher durch die Nachsorge",
     title: "Ein Plan, damit nichts untergeht.",
     text: "Nach der Akutphase bleibt viel zu organisieren. OnkoRay erstellt eine Nachsorge-Orientierung mit Terminen, Checklisten und verständlichen nächsten Schritten.",
-    image: "/assets/screens/nachsorge.png",
+    image: imageMeta.nachsorge,
     alt: "Nachsorgeplan mit Checkliste und Terminen",
     bullets: [
       "Persönlicher Nachsorgeplan angelehnt an Leitlinien",
@@ -69,7 +114,7 @@ const companions = [
   {
     name: "OnkelRay",
     tag: "Ruhig · sachlich · klar",
-    image: "/assets/img/onkelray.png",
+    image: imageMeta.onkelray,
     text: "Für dich, wenn dir strukturierte Einordnung und klare Fakten helfen.",
     quote:
       "Dein Wert liegt im mittleren Bereich. Die Leitlinie nennt dafür mehrere Wege. Wir gehen sie zusammen durch.",
@@ -77,7 +122,7 @@ const companions = [
   {
     name: "TanteRay",
     tag: "Warm · zugewandt · beruhigend",
-    image: "/assets/img/tanteray.png",
+    image: imageMeta.tanteray,
     text: "Für dich, wenn Wärme dir den Zugang öffnet und du Halt suchst.",
     quote:
       "Angst nach der Diagnose ist völlig normal. Komm, ich gehe alles mit dir durch, ganz in Ruhe.",
@@ -152,31 +197,53 @@ const faqs = [
     <div class="hero__scene" aria-hidden="true">
       <div class="hero__media">
         <div class="hero__phone hero__phone--side">
-          <img
-            src="/assets/screens/profil.png"
-            alt=""
-            width="440"
-            height="930"
-            loading="eager"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcset={imageMeta.profil.srcset}
+              sizes="232px"
+            />
+            <img
+              src={imageMeta.profil.fallback}
+              alt=""
+              width={imageMeta.profil.width}
+              height={imageMeta.profil.height}
+              loading="eager"
+            />
+          </picture>
         </div>
         <div class="hero__phone hero__phone--main">
-          <img
-            src="/assets/screens/dashboard.png"
-            alt=""
-            width="440"
-            height="930"
-            loading="eager"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcset={imageMeta.dashboard.srcset}
+              sizes="(max-width: 680px) 216px, 272px"
+            />
+            <img
+              src={imageMeta.dashboard.fallback}
+              alt=""
+              width={imageMeta.dashboard.width}
+              height={imageMeta.dashboard.height}
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
         </div>
         <div class="hero__phone hero__phone--soft">
-          <img
-            src="/assets/screens/therapie.png"
-            alt=""
-            width="440"
-            height="930"
-            loading="eager"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcset={imageMeta.therapie.srcset}
+              sizes="232px"
+            />
+            <img
+              src={imageMeta.therapie.fallback}
+              alt=""
+              width={imageMeta.therapie.width}
+              height={imageMeta.therapie.height}
+              loading="eager"
+            />
+          </picture>
         </div>
       </div>
     </div>
@@ -270,13 +337,20 @@ const faqs = [
             </div>
             <figure class="feature__screen">
               <div class="device">
-                <img
-                  src={feature.image}
-                  alt={feature.alt}
-                  width="440"
-                  height="930"
-                  loading="lazy"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset={feature.image.srcset}
+                    sizes="304px"
+                  />
+                  <img
+                    src={feature.image.fallback}
+                    alt={feature.alt}
+                    width={feature.image.width}
+                    height={feature.image.height}
+                    loading="lazy"
+                  />
+                </picture>
               </div>
             </figure>
           </article>
@@ -298,13 +372,20 @@ const faqs = [
           companions.map((companion) => (
             <article class="card companion" data-reveal>
               <div class="companion__avatar">
-                <img
-                  src={companion.image}
-                  alt={companion.name}
-                  width="240"
-                  height="240"
-                  loading="lazy"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset={companion.image.srcset}
+                    sizes="96px"
+                  />
+                  <img
+                    src={companion.image.fallback}
+                    alt={companion.name}
+                    width={companion.image.width}
+                    height={companion.image.height}
+                    loading="lazy"
+                  />
+                </picture>
               </div>
               <div>
                 <h3>{companion.name}</h3>
