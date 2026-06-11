@@ -1,0 +1,461 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const description =
+  "OnkoRay erklärt deinen Arztbrief in verständlicher Sprache: leitlinienbasiert, einfühlsam und an deiner Seite von der Diagnose bis zur Nachsorge.";
+
+const trustItems = [
+  ["Leitlinienbasiert", "Orientierung an S3-Leitlinien"],
+  ["Einfühlsam", "Warm erklärt statt Fachjargon"],
+  ["DSGVO-bewusst", "Datensparsam und transparent"],
+  ["Ärztlich entwickelt", "Aus der Radioonkologie"],
+];
+
+const steps = [
+  {
+    title: "Arztbrief hochladen",
+    text: "Mach ein Foto oder lade dein PDF hoch. OnkoRay erkennt die wichtigen Angaben und bereitet sie verständlich auf.",
+  },
+  {
+    title: "Verständlich prüfen",
+    text: "Du siehst deine Werte Schritt für Schritt und bestätigst, was stimmt. Keine stillen Annahmen, keine Black Box.",
+  },
+  {
+    title: "Einordnen und vorbereiten",
+    text: "OnkoRay zeigt dir leitlinienkonforme Optionen und hilft dir, gute Fragen für dein Behandlungsteam zu sammeln.",
+  },
+];
+
+const features = [
+  {
+    eyebrow: "Deinen Befund verstehen",
+    title: "Deine Diagnose, ruhig und klar erklärt.",
+    text: "OnkoRay zeigt dir dein Risikoprofil und ordnet Begriffe aus dem Arztbrief in Alltagssprache ein. Jede medizinische Aussage bleibt nachvollziehbar.",
+    image: "/assets/screens/dashboard.png",
+    alt: "OnkoRay Dashboard mit verständlicher Einordnung der Diagnose",
+    bullets: [
+      "Werte und Fachbegriffe ohne Nachschlagen verstehen",
+      "Leitlinienbezug mit Quellenhinweis",
+      "Hinweise, welche Angaben noch fehlen könnten",
+    ],
+  },
+  {
+    eyebrow: "Durch die Therapie begleitet",
+    title: "Alles Wichtige für den nächsten Termin parat.",
+    text: "Halte fest, wie es dir geht: Stimmung, Symptome, Termine und offene Fragen. So wird aus vielen Einzelnotizen ein ruhiger Überblick.",
+    image: "/assets/screens/therapie.png",
+    alt: "Therapie-Ansicht mit Stimmungs- und Symptomtracking",
+    bullets: [
+      "Stimmungs- und Symptomtagebuch",
+      "Therapie, Laborwerte und Termine im Überblick",
+      "Sanfte Erinnerungen ohne Druck",
+    ],
+  },
+  {
+    eyebrow: "Sicher durch die Nachsorge",
+    title: "Ein Plan, damit nichts untergeht.",
+    text: "Nach der Akutphase bleibt viel zu organisieren. OnkoRay erstellt eine Nachsorge-Orientierung mit Terminen, Checklisten und verständlichen nächsten Schritten.",
+    image: "/assets/screens/nachsorge.png",
+    alt: "Nachsorgeplan mit Checkliste und Terminen",
+    bullets: [
+      "Persönlicher Nachsorgeplan angelehnt an Leitlinien",
+      "Checklisten für Gespräche und Untersuchungen",
+      "Wichtige Informationen jederzeit wiederfinden",
+    ],
+  },
+];
+
+const companions = [
+  {
+    name: "OnkelRay",
+    tag: "Ruhig · sachlich · klar",
+    image: "/assets/img/onkelray.png",
+    text: "Für dich, wenn dir strukturierte Einordnung und klare Fakten helfen.",
+    quote:
+      "Dein Wert liegt im mittleren Bereich. Die Leitlinie nennt dafür mehrere Wege. Wir gehen sie zusammen durch.",
+  },
+  {
+    name: "TanteRay",
+    tag: "Warm · zugewandt · beruhigend",
+    image: "/assets/img/tanteray.png",
+    text: "Für dich, wenn Wärme dir den Zugang öffnet und du Halt suchst.",
+    quote:
+      "Angst nach der Diagnose ist völlig normal. Komm, ich gehe alles mit dir durch, ganz in Ruhe.",
+  },
+];
+
+const safetyItems = [
+  {
+    title: "Leitlinienbasiert",
+    text: "Inhalte stützen sich auf medizinische Leitlinien und bleiben mit Quellenangaben nachvollziehbar.",
+  },
+  {
+    title: "Ärztlich entwickelt",
+    text: "OnkoRay entsteht unter Leitung einer praktizierenden Radioonkologin, nah an der Versorgung.",
+  },
+  {
+    title: "Datensparsam gedacht",
+    text: "Die Website verzichtet auf Tracking. Die App wird mit Blick auf Gesundheitsdaten und DSGVO entwickelt.",
+  },
+];
+
+const team = [
+  {
+    initials: "DK",
+    name: "Dilek Kasap",
+    role: "Radioonkologie & medizinische Leitung",
+    text: "Praktizierende Radioonkologin. Sie sorgt dafür, dass Informationen fachlich stimmen und sich an aktuellen Leitlinien orientieren.",
+  },
+  {
+    initials: "KH",
+    name: "Kai-Uwe Hella",
+    role: "Produkt & Technologie",
+    text: "Verantwortlich für eine App, die sich verständlich, einfühlsam und einfach zu bedienen anfühlt.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Gibt OnkoRay mir vor, welche Therapie ich wählen soll?",
+    answer:
+      "Nein. OnkoRay ist eine Orientierungshilfe, keine Therapieempfehlung. Die App zeigt leitlinienkonforme Optionen neutral und verständlich. Die Entscheidung triffst du gemeinsam mit deinem Behandlungsteam.",
+  },
+  {
+    question: "Ist OnkoRay schon erhältlich?",
+    answer:
+      "Noch nicht. OnkoRay ist in Entwicklung. Wir starten zuerst mit Brustkrebs und Lungenkrebs. Wenn du dich anmeldest, halten wir dich auf dem Laufenden.",
+  },
+  {
+    question: "Woher kommen die Informationen?",
+    answer:
+      "Aus medizinischen Leitlinien, insbesondere den S3-Leitlinien der AWMF. Aussagen werden mit Quellen hinterlegt, damit du nachvollziehen kannst, worauf sie beruhen.",
+  },
+  {
+    question: "Für wen ist OnkoRay gedacht?",
+    answer:
+      "Für erwachsene Menschen mit einer Krebsdiagnose, die ihre Situation besser verstehen möchten. Angehörige können auf Wunsch einbezogen werden.",
+  },
+  {
+    question: "Sind meine Daten sicher?",
+    answer:
+      "Der Schutz von Gesundheitsdaten hat höchste Priorität. Die Website selbst setzt kein Tracking ein; die App wird nach DSGVO und deutschen Sicherheitsstandards entwickelt.",
+  },
+];
+---
+
+<BaseLayout
+  title="OnkoRay — Deine Diagnose verstehen. An deiner Seite."
+  description={description}
+  image="/assets/screens/dashboard.png"
+>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__scene" aria-hidden="true">
+      <div class="hero__media">
+        <div class="hero__phone hero__phone--side">
+          <img
+            src="/assets/screens/profil.png"
+            alt=""
+            width="440"
+            height="930"
+            loading="eager"
+          />
+        </div>
+        <div class="hero__phone hero__phone--main">
+          <img
+            src="/assets/screens/dashboard.png"
+            alt=""
+            width="440"
+            height="930"
+            loading="eager"
+          />
+        </div>
+        <div class="hero__phone hero__phone--soft">
+          <img
+            src="/assets/screens/therapie.png"
+            alt=""
+            width="440"
+            height="930"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="site-wrap hero__content">
+      <div class="hero__copy" data-reveal>
+        <span class="eyebrow">Dein Begleiter nach der Diagnose</span>
+        <h1 id="hero-title">Verstehen, was deine Diagnose bedeutet.</h1>
+        <p>
+          OnkoRay übersetzt deinen Arztbrief in klare, ruhige Sprache. Damit du
+          gut informiert ins Gespräch mit deinem Behandlungsteam gehst.
+        </p>
+        <div class="hero__actions">
+          <a class="action action--primary" href="#dabei"
+            >Sei von Anfang an dabei</a
+          >
+          <a class="action action--secondary" href="#so">So funktioniert's</a>
+        </div>
+        <p class="hero__note">
+          Eine Orientierungshilfe. OnkoRay ersetzt nie ärztliche Beratung,
+          Diagnose oder Behandlung.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip" aria-label="Vertrauensmerkmale">
+    <div class="site-wrap trust-strip__grid">
+      {
+        trustItems.map(([title, text]) => (
+          <div>
+            <strong>{title}</strong>
+            <span>{text}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="site-wrap intro" data-reveal>
+      <span class="eyebrow">Du bist nicht allein</span>
+      <p class="intro__lead">
+        Nach der Diagnose bleiben oft mehr Fragen als Antworten. Der Arztbrief
+        ist für Fachleute geschrieben, <span>nicht für dich.</span>
+      </p>
+      <p>
+        OnkoRay nimmt sich dafür Zeit: Befunde verständlich machen, medizinische
+        Optionen einordnen und dich auf Gespräche vorbereiten, ohne dich zu
+        überfordern.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--low" id="so">
+    <div class="site-wrap">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow">So funktioniert's</span>
+        <h2>In drei Schritten zu mehr Klarheit.</h2>
+        <p>Kein Fachjargon, kein Druck. Du gibst das Tempo vor.</p>
+      </div>
+
+      <div class="steps">
+        {
+          steps.map((step, index) => (
+            <article class="card step" data-reveal>
+              <span class="step__number">{index + 1}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" id="funktionen">
+    <div class="site-wrap">
+      {
+        features.map((feature) => (
+          <article class="feature" data-reveal>
+            <div class="feature__copy">
+              <span class="eyebrow">{feature.eyebrow}</span>
+              <h2>{feature.title}</h2>
+              <p>{feature.text}</p>
+              <ul class="feature__list">
+                {feature.bullets.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <figure class="feature__screen">
+              <div class="device">
+                <img
+                  src={feature.image}
+                  alt={feature.alt}
+                  width="440"
+                  height="930"
+                  loading="lazy"
+                />
+              </div>
+            </figure>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section--peach" id="begleiter">
+    <div class="site-wrap">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow">Deine Begleiter</span>
+        <h2>Niemand sollte das allein durchstehen.</h2>
+        <p>Du wählst, wer dich begleitet, und kannst jederzeit wechseln.</p>
+      </div>
+
+      <div class="companions">
+        {
+          companions.map((companion) => (
+            <article class="card companion" data-reveal>
+              <div class="companion__avatar">
+                <img
+                  src={companion.image}
+                  alt={companion.name}
+                  width="240"
+                  height="240"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <h3>{companion.name}</h3>
+                <span class="companion__tag">{companion.tag}</span>
+                <p>{companion.text}</p>
+                <p class="quote">„{companion.quote}“</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sage" id="sicherheit">
+    <div class="site-wrap">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow">Worauf du dich verlassen kannst</span>
+        <h2>Eine Orientierungshilfe, keine Therapieempfehlung.</h2>
+        <p>
+          OnkoRay unterstützt das Gespräch mit deinem Behandlungsteam. Die
+          Entscheidung über deine Therapie triffst du nie mit der App allein.
+        </p>
+      </div>
+
+      <div class="safety-grid">
+        {
+          safetyItems.map((item) => (
+            <article class="safety-card" data-reveal>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))
+        }
+      </div>
+
+      <p class="safety-note" data-reveal>
+        Transparenz statt Empfehlung: OnkoRay stellt Optionen neutral dar, ohne
+        Wertung und ohne Hierarchie. So behältst du die Kontrolle über deine
+        Entscheidungen.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="site-wrap">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow">Menschen hinter OnkoRay</span>
+        <h2>Aus der Praxis, für Betroffene.</h2>
+      </div>
+
+      <div class="team-grid">
+        {
+          team.map((member) => (
+            <article class="card team-card" data-reveal>
+              <span class="team-card__initials">{member.initials}</span>
+              <div>
+                <h3>{member.name}</h3>
+                <span class="team-card__role">{member.role}</span>
+                <p>{member.text}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--low" id="faq">
+    <div class="site-wrap">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow">Häufige Fragen</span>
+        <h2>Gut zu wissen.</h2>
+      </div>
+
+      <div class="faq" data-reveal>
+        {
+          faqs.map((faq, index) => {
+            const panelId = `faq-${index}`;
+            return (
+              <article class="card faq__item" data-faq-item>
+                <button
+                  class="faq__button"
+                  type="button"
+                  aria-expanded={index === 0 ? "true" : "false"}
+                  aria-controls={panelId}
+                  data-faq-toggle
+                >
+                  {faq.question}
+                </button>
+                <div
+                  class="faq__panel"
+                  id={panelId}
+                  data-faq-panel
+                  hidden={index !== 0}
+                >
+                  <p>{faq.answer}</p>
+                </div>
+              </article>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" id="dabei">
+    <div class="site-wrap">
+      <div class="cta" data-reveal>
+        <span class="eyebrow">Pre-Launch</span>
+        <h2>Sei von Anfang an dabei.</h2>
+        <p>
+          Wir entwickeln OnkoRay mit und für Betroffene. Melde dich an und
+          erfahre als Erste:r, wenn es losgeht.
+        </p>
+        <form class="signup" id="cta-form" novalidate>
+          <input
+            type="email"
+            name="email"
+            placeholder="Deine E-Mail-Adresse"
+            aria-label="E-Mail-Adresse"
+            required
+          />
+          <button class="action action--primary" type="submit"
+            >Updates erhalten</button
+          >
+        </form>
+        <p class="cta__fine">
+          Kein Spam. Nur eine Nachricht, wenn es Neues gibt.
+        </p>
+        <p class="cta__alt">
+          Du bist Klinik oder möchtest als Pilot-Partner mitwirken?
+          <a href="mailto:kontakt@onkoray.de">Schreib uns</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--compact section--peach">
+    <div class="site-wrap">
+      <div class="notice" data-reveal>
+        <div>
+          <h2>Wichtiger Hinweis</h2>
+          <p>
+            OnkoRay ist eine Orientierungshilfe zur Unterstützung des
+            Arzt-Patienten-Gesprächs und ersetzt keine ärztliche Beratung,
+            Diagnose oder Behandlung. OnkoRay ist noch nicht als Medizinprodukt
+            zugelassen.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

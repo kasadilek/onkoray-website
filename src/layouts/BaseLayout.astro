@@ -1,0 +1,65 @@
+---
+import { ClientRouter } from "astro:transitions";
+
+import { siteConfig } from "@lib/site-config";
+import BaseHead from "@components/base/BaseHead.astro";
+import SkipLink from "@components/a11y/SkipLink.astro";
+import SiteHead from "@/components/SiteHead/SiteHead.astro";
+import SiteFoot from "@/components/SiteFoot/SiteFoot.astro";
+
+import "@/styles/global.css";
+
+type OgType = "website" | "article" | "profile";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: URL;
+  noindex?: boolean;
+  type?: OgType;
+  lang?: string;
+  enableViewTransitions?: boolean;
+}
+
+const {
+  title,
+  description,
+  image,
+  canonicalURL,
+  noindex,
+  type,
+  lang = siteConfig.locale,
+  enableViewTransitions = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+      image={image}
+      canonicalURL={canonicalURL}
+      noindex={noindex}
+      type={type}
+      locale={lang}
+    >
+      <slot name="head" />
+    </BaseHead>
+    {enableViewTransitions && <ClientRouter />}
+  </head>
+  <body>
+    <SkipLink />
+    <SiteHead />
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+    <SiteFoot />
+  </body>
+</html>
+
+<script>
+  import "@/js/global.js";
+</script>

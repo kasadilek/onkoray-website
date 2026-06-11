@@ -1,0 +1,152 @@
+.site-head {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--surface) 88%, white);
+  border-bottom: 1px solid color-mix(in srgb, var(--sage) 14%, transparent);
+  backdrop-filter: blur(18px);
+}
+
+.site-head.is-scrolled {
+  box-shadow: 0 0.75rem 2rem rgb(29 40 32 / 0.07);
+}
+
+.site-head__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4.75rem;
+  gap: 1.5rem;
+}
+
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 8.75rem;
+  color: var(--sage-light);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+.site-logo img {
+  width: 2.35rem;
+  height: auto;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.site-nav a,
+.mobile-menu a {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.mobile-menu a:hover {
+  color: var(--sage);
+}
+
+.site-head__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-toggle {
+  display: none;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border: 1px solid color-mix(in srgb, var(--sage) 18%, transparent);
+  border-radius: 999rem;
+  background: white;
+  color: var(--ink);
+}
+
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+  display: block;
+  inline-size: 1.15rem;
+  block-size: 2px;
+  border-radius: 999rem;
+  background: currentColor;
+  content: "";
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.nav-toggle span {
+  position: relative;
+  margin-inline: auto;
+}
+
+.nav-toggle span::before,
+.nav-toggle span::after {
+  position: absolute;
+  inset-inline-start: 0;
+}
+
+.nav-toggle span::before {
+  transform: translateY(-0.4rem);
+}
+
+.nav-toggle span::after {
+  transform: translateY(0.4rem);
+}
+
+.nav-toggle.is-open span {
+  background: transparent;
+}
+
+.nav-toggle.is-open span::before {
+  background: var(--ink);
+  transform: rotate(45deg);
+}
+
+.nav-toggle.is-open span::after {
+  background: var(--ink);
+  transform: rotate(-45deg);
+}
+
+.mobile-menu {
+  display: none;
+  border-top: 1px solid color-mix(in srgb, var(--sage) 14%, transparent);
+  background: var(--surface);
+  padding: 0 1.25rem 1.25rem;
+}
+
+.mobile-menu a {
+  display: block;
+  padding-block: 0.9rem;
+}
+
+.mobile-menu .action {
+  justify-content: center;
+  margin-block-start: 0.75rem;
+}
+
+@media (width <= 900px) {
+  .site-nav,
+  .site-head__actions > .action {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: grid;
+    place-items: center;
+  }
+
+  .mobile-menu.is-open {
+    display: block;
+  }
+}

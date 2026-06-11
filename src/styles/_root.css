@@ -1,0 +1,21 @@
+body {
+  line-height: 1.5;
+  /* --font-brand is registered via Astro's Fonts API (astro.config.mjs#fonts).
+     When no brand font is configured, the system-ui stack takes over. */
+  font-family:
+    var(--font-brand),
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+  font-weight: var(--weight-bold);
+}

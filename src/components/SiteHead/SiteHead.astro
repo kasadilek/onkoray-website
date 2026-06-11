@@ -1,0 +1,45 @@
+---
+const navItems = [
+  { href: "/#so", label: "Ablauf" },
+  { href: "/#funktionen", label: "Funktionen" },
+  { href: "/#begleiter", label: "Begleiter" },
+  { href: "/#sicherheit", label: "Sicherheit" },
+  { href: "/#faq", label: "FAQ" },
+];
+---
+
+<header class="site-head" id="top">
+  <div class="site-wrap site-head__inner">
+    <a class="site-logo" href="/" aria-label="OnkoRay Startseite">
+      <img src="/assets/img/onkoray-mark.svg" alt="" width="44" height="44" />
+      <span>OnkoRay</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+
+    <div class="site-head__actions">
+      <a class="action action--primary" href="/#dabei">Dabei sein</a>
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        type="button"
+        aria-label="Menü öffnen"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+      >
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile Navigation">
+    {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+    <a class="action action--primary" href="/#dabei">Dabei sein</a>
+  </nav>
+</header>
+
+<style>
+  @import "./SiteHead.css";
+</style>

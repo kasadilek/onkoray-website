@@ -1,0 +1,24 @@
+/* Focus-visible defaults.
+ *
+ * Uses `currentColor` so focus rings adapt to the surrounding typography
+ * colour — the Design-Layer only needs to set text colour and focus is
+ * visible. Override `--focus-ring-color` per project for a brand accent.
+ *
+ * Never use `outline: none` without an equivalent replacement.
+ */
+
+:root {
+  --focus-ring-color: currentColor;
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+}
+
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Clear the default UA ring on non-keyboard focus so we don't double up. */
+:focus:not(:focus-visible) {
+  outline: none;
+}

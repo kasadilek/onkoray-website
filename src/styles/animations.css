@@ -1,0 +1,32 @@
+/*
+ * Initial-state hiding for elements that GSAP will animate in.
+ *
+ * Scoped to `prefers-reduced-motion: no-preference` so reduced-motion
+ * users never see the hidden state — they get the final state directly,
+ * and the JS bail in `animations.ts` marks everything as initialised
+ * without registering ScrollTriggers.
+ *
+ * `:not([data-animate-init])` disappears the moment the JS runs, so
+ * there's no race with GSAP's own inline styles.
+ */
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-animate="fade-in"]:not([data-animate-init]) {
+    opacity: 0;
+  }
+
+  [data-animate="slide-up"]:not([data-animate-init]) {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  [data-animate="reveal"]:not([data-animate-init]) {
+    opacity: 0;
+  }
+}
+
+/* JS-disabled fallback — never leave content invisible. */
+.no-js [data-animate] {
+  opacity: 1 !important;
+  transform: none !important;
+}

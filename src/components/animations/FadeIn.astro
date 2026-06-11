@@ -1,0 +1,24 @@
+---
+interface Props {
+  duration?: number;
+  delay?: number;
+  class?: string;
+}
+
+const { duration, delay, class: className } = Astro.props;
+---
+
+<div
+  data-animate="fade-in"
+  data-duration={duration}
+  data-delay={delay}
+  class={className}
+>
+  <slot />
+</div>
+
+<script>
+  import { initAnimations, cleanupAnimations } from "@lib/animations";
+  document.addEventListener("astro:page-load", initAnimations);
+  document.addEventListener("astro:before-preparation", cleanupAnimations);
+</script>

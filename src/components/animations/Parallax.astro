@@ -1,0 +1,18 @@
+---
+interface Props {
+  speed?: number;
+  class?: string;
+}
+
+const { speed = 0.5, class: className } = Astro.props;
+---
+
+<div data-animate="parallax" data-speed={speed} class={className}>
+  <slot />
+</div>
+
+<script>
+  import { initAnimations, cleanupAnimations } from "@lib/animations";
+  document.addEventListener("astro:page-load", initAnimations);
+  document.addEventListener("astro:before-preparation", cleanupAnimations);
+</script>

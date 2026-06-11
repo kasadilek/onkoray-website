@@ -1,0 +1,26 @@
+---
+interface Props {
+  duration?: number;
+  delay?: number;
+  distance?: number;
+  class?: string;
+}
+
+const { duration, delay, distance, class: className } = Astro.props;
+---
+
+<div
+  data-animate="slide-up"
+  data-duration={duration}
+  data-delay={delay}
+  data-distance={distance}
+  class={className}
+>
+  <slot />
+</div>
+
+<script>
+  import { initAnimations, cleanupAnimations } from "@lib/animations";
+  document.addEventListener("astro:page-load", initAnimations);
+  document.addEventListener("astro:before-preparation", cleanupAnimations);
+</script>

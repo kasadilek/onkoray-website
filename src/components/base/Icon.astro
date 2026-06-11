@@ -1,0 +1,18 @@
+---
+import { Icon as AstroIcon } from "astro-icon/components";
+
+interface Props {
+  name: string;
+  label?: string;
+  size?: number | string;
+  class?: string;
+}
+
+const { name, label, size, class: className } = Astro.props;
+
+const a11yAttrs = label
+  ? ({ "aria-label": label, role: "img" } as const)
+  : ({ "aria-hidden": "true", focusable: "false" } as const);
+---
+
+<AstroIcon name={name} size={size} class={className} {...a11yAttrs} />

@@ -1,0 +1,15 @@
+@layer fonts, reset, layout, plugins, utils, blocks;
+
+/* Import all files from utilities folder
+This needs to be the first import statement */
+@import "_import-glob.css";
+
+@import "_reset.css" layer(reset);
+@import "_root.css" layer(reset);
+@import "focus.css" layer(reset);
+@import "animations.css" layer(reset);
+@import "onkoray.css" layer(blocks);
+
+/* Import generated variables and utilities */
+@import "./generated/_variables.css" layer(reset);
+@import "./generated/_utilities.css" layer(utils);

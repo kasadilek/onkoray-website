@@ -1,0 +1,12 @@
+.agents/
+.claude/
+.cursor/
+.gemini/
+.kiro/
+node_modules/
+dist/
+.astro/
+.vercel/
+.lighthouseci/
+src/styles/generated/
+src/assets/icons/currentColor/

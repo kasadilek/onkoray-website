@@ -1,0 +1,15 @@
+---
+import type { Thing, WithContext } from "schema-dts";
+
+interface Props {
+  schema: WithContext<Thing>;
+}
+
+const { schema } = Astro.props;
+
+// JSON.stringify already escapes quotes and backslashes correctly.
+// Escape "<" to prevent an inline </script> sequence from closing the tag.
+const serialized = JSON.stringify(schema).replace(/</g, "\\u003c");
+---
+
+<script type="application/ld+json" is:inline set:html={serialized} />

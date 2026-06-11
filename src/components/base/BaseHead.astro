@@ -1,0 +1,85 @@
+---
+import { siteConfig } from "@lib/site-config";
+import { buildCanonical, truncateDescription } from "@lib/seo";
+
+type OgType = "website" | "article" | "profile";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: URL;
+  noindex?: boolean;
+  type?: OgType;
+  siteName?: string;
+  locale?: string;
+}
+
+const {
+  title = siteConfig.name,
+  description,
+  image,
+  canonicalURL = buildCanonical(
+    Astro.url.pathname,
+    Astro.site ?? siteConfig.url
+  ),
+  noindex = false,
+  type = "website",
+  siteName = siteConfig.name,
+  locale = siteConfig.locale,
+} = Astro.props;
+
+const truncatedDescription = description
+  ? truncateDescription(description)
+  : undefined;
+const ogImage = image ? new URL(image, canonicalURL).href : undefined;
+const ogLocale = locale.replace("-", "_");
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<meta name="format-detection" content="telephone=no" />
+
+<title>{title}</title>
+{
+  truncatedDescription && (
+    <meta name="description" content={truncatedDescription} />
+  )
+}
+
+<link rel="canonical" href={canonicalURL.href} />
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Open Graph -->
+<meta property="og:type" content={type} />
+<meta property="og:title" content={title} />
+{
+  truncatedDescription && (
+    <meta property="og:description" content={truncatedDescription} />
+  )
+}
+<meta property="og:url" content={canonicalURL.href} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content={ogLocale} />
+{ogImage && <meta property="og:image" content={ogImage} />}
+
+<!-- Twitter Cards -->
+<meta
+  name="twitter:card"
+  content={ogImage ? "summary_large_image" : "summary"}
+/>
+<meta name="twitter:title" content={title} />
+{
+  truncatedDescription && (
+    <meta name="twitter:description" content={truncatedDescription} />
+  )
+}
+{ogImage && <meta name="twitter:image" content={ogImage} />}
+
+<!-- Font preload / JSON-LD / analytics: inject per-page via this slot.
+     Use Astro's <Font> component (astro:assets) with cssVariable values
+     declared in astro.config.mjs#fonts. See docs/FONTS.md. -->
+<slot />

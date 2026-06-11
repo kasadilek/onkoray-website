@@ -1,0 +1,32 @@
+---
+import type { gsap } from "gsap";
+
+interface Props {
+  from?: gsap.TweenVars;
+  to?: gsap.TweenVars;
+  duration?: number;
+  delay?: number;
+  ease?: string;
+  class?: string;
+}
+
+const { from, to, duration, delay, ease, class: className } = Astro.props;
+---
+
+<div
+  data-animate="reveal"
+  data-from={from ? JSON.stringify(from) : undefined}
+  data-to={to ? JSON.stringify(to) : undefined}
+  data-duration={duration}
+  data-delay={delay}
+  data-ease={ease}
+  class={className}
+>
+  <slot />
+</div>
+
+<script>
+  import { initAnimations, cleanupAnimations } from "@lib/animations";
+  document.addEventListener("astro:page-load", initAnimations);
+  document.addEventListener("astro:before-preparation", cleanupAnimations);
+</script>

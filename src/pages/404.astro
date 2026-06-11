@@ -1,0 +1,23 @@
+---
+export const prerender = true;
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Seite nicht gefunden — OnkoRay"
+  description="Diese OnkoRay Seite wurde nicht gefunden."
+  noindex
+>
+  <div class="site-wrap section">
+    <div class="legal-page">
+      <span class="eyebrow">404</span>
+      <h1>Diese Seite gibt es nicht.</h1>
+      <p>
+        Vielleicht wurde sie verschoben oder der Link ist veraltet. Zur
+        Startseite findest du wieder zurück.
+      </p>
+      <a class="back-link" href="/">Zur Startseite</a>
+    </div>
+  </div>
+</BaseLayout>
