@@ -99,7 +99,7 @@ h1, h2, h3, h4 {
 .eyebrow::before { content: ""; width: 22px; height: 2px; border-radius: 2px; background: var(--sunrise); opacity: .6; }
 .head { max-width: 680px; margin: 0 auto 60px; text-align: center; }
 .head.left { margin-left: 0; text-align: left; }
-.head h2 { font-size: clamp(2rem, 4.2vw, 3.1rem); }
+.head h2 { font-size: clamp(2rem, 4.2vw, 3.1rem); hyphens: manual; }
 .head p { margin-top: 18px; font-size: 1.15rem; color: var(--ink-soft); }
 .head.left .eyebrow { justify-content: flex-start; }
 
@@ -232,9 +232,9 @@ html.js .reveal { opacity: 0; transform: translateY(28px); }
 .comp-card { background: var(--surface-white); border-radius: var(--r-xl); padding: 40px; box-shadow: var(--sh); transition: transform .35s var(--ease); }
 .comp-card:hover { transform: translateY(-6px); }
 .comp-top { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; margin-bottom: 22px; }
-.comp-top > div { min-width: 0; flex: 1 1 200px; }
-.comp-avatar { width: 110px; height: 110px; flex: none; border-radius: 50%; background: var(--surface-low); display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
-.comp-avatar img { width: 96px; height: auto; }
+.comp-top > div:not(.comp-avatar) { min-width: 0; flex: 1 1 200px; }
+.comp-avatar { width: 108px; height: 108px; flex: none; border-radius: 50%; background: var(--surface-low); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.comp-avatar img { width: 94px; height: 94px; object-fit: contain; }
 .comp-card h3 { font-size: 1.7rem; color: var(--sage); }
 .comp-tag { color: var(--sunrise); font-weight: 600; font-size: .98rem; margin-top: 4px; }
 .comp-card .desc { color: var(--ink-soft); }
@@ -310,6 +310,7 @@ html.js .reveal { opacity: 0; transform: translateY(28px); }
   .nav-toggle { display: flex; }
   .mobile-menu { display: block; }
   .hero-grid { grid-template-columns: 1fr; gap: 60px; }
+  .glass { left: 0; }
   .steps, .safe-grid { grid-template-columns: 1fr; }
   .comp, .team { grid-template-columns: 1fr; }
   .feat { grid-template-columns: 1fr; gap: 40px; margin-bottom: 80px; }
@@ -318,6 +319,7 @@ html.js .reveal { opacity: 0; transform: translateY(28px); }
 }
 @media (max-width: 620px) {
   .section { padding: 76px 0; }
+  .glass { left: 6px; bottom: 14px; max-width: 215px; }
   .cta-card { padding: 52px 28px; }
   .comp-card, .comp-top { text-align: center; }
   .comp-top { flex-direction: column; align-items: center; }
