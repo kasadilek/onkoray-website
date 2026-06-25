@@ -281,6 +281,8 @@ html.js .reveal { opacity: 0; transform: translateY(28px); }
 .signup input:focus { outline: 2px solid var(--peach); }
 .signup .btn { background: var(--peach); color: var(--sage); flex: none; }
 .signup .btn:hover { background: #fff; transform: translateY(-2px); }
+.cta-mail { background: var(--peach); color: var(--sage); }
+.cta-mail:hover { background: #fff; transform: translateY(-2px); }
 .cta-fine { margin-top: 18px; font-size: .85rem; color: var(--on-sage-soft); }
 .cta-alt { margin-top: 22px; font-size: .98rem; color: var(--on-sage-soft); }
 .cta-alt a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }

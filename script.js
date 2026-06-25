@@ -44,18 +44,21 @@
     });
   });
 
-  // Sign-up form (front-end only — no backend yet)
+  // Sign-up form -> opens the visitor's email client addressed to kontakt@onkoray.de
   const form = document.getElementById('ctaForm');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const email = form.email.value.trim();
       if (!email || !/.+@.+\..+/.test(email)) { form.email.focus(); return; }
-      const btn = form.querySelector('button[type="submit"]');
-      btn.textContent = 'Danke — bis bald! ✓';
-      form.email.value = '';
-      form.email.disabled = true;
-      setTimeout(() => { btn.textContent = 'Updates erhalten'; form.email.disabled = false; }, 4000);
+      const subject = encodeURIComponent('OnkoRay — Updates erhalten');
+      const body = encodeURIComponent(
+        'Hallo OnkoRay-Team,\n\n' +
+        'bitte haltet mich über den Start von OnkoRay auf dem Laufenden.\n\n' +
+        'Meine E-Mail-Adresse: ' + email + '\n\n' +
+        'Viele Grüße'
+      );
+      window.location.href = 'mailto:kontakt@onkoray.de?subject=' + subject + '&body=' + body;
     });
   }
 
