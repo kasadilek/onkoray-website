@@ -508,12 +508,15 @@ p {
   align-self: start;
   background: var(--surface-low);
   border-radius: 999rem;
+  block-size: 6rem;
   inline-size: 6rem;
   overflow: hidden;
 }
 
 .companion__avatar img {
+  block-size: 100%;
   inline-size: 100%;
+  object-fit: cover;
 }
 
 .companion__tag {
@@ -661,34 +664,11 @@ p {
   max-inline-size: 42rem;
 }
 
-.signup {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-block-start: 1.5rem;
-  max-inline-size: 38rem;
-}
-
-.signup input {
-  background: white;
-  border: 1px solid transparent;
-  border-radius: 999rem;
-  color: var(--ink);
-  flex: 1 1 17rem;
-  min-block-size: 3rem;
-  padding-inline: 1rem;
-}
-
-.signup input:focus-visible {
-  border-color: var(--peach);
-  outline: 3px solid rgb(248 228 208 / 0.38);
-}
-
-.signup .action {
+.cta .action--primary {
   border: 0;
+  margin-block-start: 1.5rem;
 }
 
-.cta__fine,
 .cta__alt {
   color: #dfe8dc;
   font-size: 0.92rem;
@@ -877,14 +857,12 @@ p {
     font-size: 1rem;
   }
 
-  .hero__actions,
-  .signup {
+  .hero__actions {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .hero__actions .action,
-  .signup .action {
+  .hero__actions .action {
     inline-size: 100%;
   }
 

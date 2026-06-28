@@ -57,22 +57,22 @@ const imageMeta = {
     height: 1576,
   },
   onkelray: {
-    fallback: assetPath("/assets/img/onkelray.png"),
+    fallback: assetPath("/assets/img/onkelray-head.png"),
     srcset: assetSrcset([
-      ["/assets/optimized/onkelray-96.webp", "96w"],
-      ["/assets/optimized/onkelray-192.webp", "192w"],
+      ["/assets/optimized/onkelray-head-96.webp", "96w"],
+      ["/assets/optimized/onkelray-head-192.webp", "192w"],
     ]),
-    width: 280,
-    height: 586,
+    width: 192,
+    height: 192,
   },
   tanteray: {
-    fallback: assetPath("/assets/img/tanteray.png"),
+    fallback: assetPath("/assets/img/tanteray-head.png"),
     srcset: assetSrcset([
-      ["/assets/optimized/tanteray-96.webp", "96w"],
-      ["/assets/optimized/tanteray-192.webp", "192w"],
+      ["/assets/optimized/tanteray-head-96.webp", "96w"],
+      ["/assets/optimized/tanteray-head-192.webp", "192w"],
     ]),
-    width: 280,
-    height: 586,
+    width: 192,
+    height: 192,
   },
 };
 
@@ -188,7 +188,7 @@ const faqs = [
   {
     question: "Ist OnkoRay schon erhältlich?",
     answer:
-      "Noch nicht. OnkoRay ist in Entwicklung. Wir starten zuerst mit Brustkrebs und Lungenkrebs. Wenn du dich anmeldest, halten wir dich auf dem Laufenden.",
+      "Noch nicht. OnkoRay ist in Entwicklung. Wenn du Kontakt mit uns aufnimmst, halten wir dich auf dem Laufenden, sobald es losgeht.",
   },
   {
     question: "Woher kommen die Informationen?",
@@ -277,10 +277,8 @@ const faqs = [
           gut informiert ins Gespräch mit deinem Behandlungsteam gehst.
         </p>
         <div class="hero__actions">
-          <a class="action action--primary" href="#dabei"
-            >Sei von Anfang an dabei</a
-          >
-          <a class="action action--secondary" href="#so">So funktioniert's</a>
+          <a class="action action--primary" href="#so">So funktioniert's</a>
+          <a class="action action--secondary" href="#dabei">Kontakt</a>
         </div>
         <p class="hero__note">
           Eine Orientierungshilfe. OnkoRay ersetzt nie ärztliche Beratung,
@@ -307,8 +305,8 @@ const faqs = [
     <div class="site-wrap intro" data-reveal>
       <span class="eyebrow">Du bist nicht allein</span>
       <p class="intro__lead">
-        Nach der Diagnose bleiben oft mehr Fragen als Antworten. Der Arztbrief
-        ist für Fachleute geschrieben, <span>nicht für dich.</span>
+        Nach der Krebsdiagnose bleiben oft mehr Fragen als Antworten. Der
+        Arztbrief ist für Fachleute geschrieben, <span>nicht für dich.</span>
       </p>
       <p>
         OnkoRay nimmt sich dafür Zeit: Befunde verständlich machen, medizinische
@@ -444,8 +442,7 @@ const faqs = [
 
       <p class="safety-note" data-reveal>
         Transparenz statt Empfehlung: OnkoRay stellt Optionen neutral dar, ohne
-        Wertung und ohne Hierarchie. So behältst du die Kontrolle über deine
-        Entscheidungen.
+        Wertung. So behältst du die Kontrolle über deine Entscheidungen.
       </p>
     </div>
   </section>
@@ -515,27 +512,15 @@ const faqs = [
   <section class="section section--white" id="dabei">
     <div class="site-wrap">
       <div class="cta" data-reveal>
-        <span class="eyebrow">Pre-Launch</span>
-        <h2>Sei von Anfang an dabei.</h2>
+        <span class="eyebrow">Kontakt</span>
+        <h2>Du hast Fragen?</h2>
         <p>
-          Wir entwickeln OnkoRay mit und für Betroffene. Melde dich an und
-          erfahre als Erste:r, wenn es losgeht.
+          Du möchtest mehr über OnkoRay erfahren oder dich mit uns in Verbindung
+          setzen? Wir freuen uns auf deine Nachricht.
         </p>
-        <form class="signup" id="cta-form" novalidate>
-          <input
-            type="email"
-            name="email"
-            placeholder="Deine E-Mail-Adresse"
-            aria-label="E-Mail-Adresse"
-            required
-          />
-          <button class="action action--primary" type="submit"
-            >Updates erhalten</button
-          >
-        </form>
-        <p class="cta__fine">
-          Kein Spam. Nur eine Nachricht, wenn es Neues gibt.
-        </p>
+        <a class="action action--primary" href="mailto:kontakt@onkoray.de"
+          >Kontakt aufnehmen</a
+        >
         <p class="cta__alt">
           Du bist Klinik oder möchtest als Pilot-Partner mitwirken?
           <a href="mailto:kontakt@onkoray.de">Schreib uns</a>.

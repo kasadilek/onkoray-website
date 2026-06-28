@@ -68,31 +68,6 @@ const boot = () => {
       panel.toggleAttribute("hidden", !shouldOpen);
     });
   });
-
-  const form = document.querySelector("#cta-form");
-  if (form instanceof HTMLFormElement) {
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const email = form.elements.namedItem("email");
-      const button = form.querySelector("button[type='submit']");
-
-      if (!(email instanceof HTMLInputElement) || !button) return;
-      if (!email.validity.valid) {
-        email.focus();
-        return;
-      }
-
-      const originalLabel = button.textContent;
-      button.textContent = "Danke, wir melden uns";
-      email.value = "";
-      email.disabled = true;
-
-      window.setTimeout(() => {
-        button.textContent = originalLabel;
-        email.disabled = false;
-      }, 3500);
-    });
-  }
 };
 
 boot();
