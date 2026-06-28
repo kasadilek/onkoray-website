@@ -37,3 +37,10 @@ src/styles/generated
 .netlify
 
 src/assets/icons/currentColor
+
+# AI agent skill tooling (installed per-machine, not project source)
+.agents/skills/
+.claude/skills/
+.cursor/skills/
+.gemini/skills/
+.kiro/skills/
