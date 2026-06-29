@@ -21,8 +21,15 @@
   filter: brightness(0) invert(1);
 }
 
-.site-foot__logo span {
-  color: white;
+.site-foot__wm {
+  font-family: "Carlito", "Calibri", system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+.site-foot__wm span {
+  color: #7da48a;
 }
 
 .site-foot p {

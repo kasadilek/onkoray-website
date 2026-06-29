@@ -226,31 +226,24 @@ p {
 
 .hero__scene {
   inset-block: 0;
-  inset-inline: 58% 0;
-  overflow: hidden;
+  inset-inline: 52% 0;
+  overflow: visible;
   position: absolute;
-}
-
-.hero__scene::after {
-  background: var(--surface);
-  block-size: 8rem;
-  content: "";
-  inset-block-end: -5rem;
-  inset-inline: -5%;
-  position: absolute;
-  transform: rotate(-1deg);
 }
 
 .hero__media {
   align-items: center;
   display: flex;
-  gap: 1.1rem;
-  inline-size: min(47rem, 58vw);
-  inset-block: 3rem auto;
-  inset-inline-end: -8rem;
+  inline-size: min(36rem, 50vw);
+  inset-block: 3.5rem auto;
+  inset-inline-end: 1.5rem;
   justify-content: center;
   min-block-size: 31rem;
   position: absolute;
+}
+
+.hero__visual {
+  position: relative;
 }
 
 .hero__phone {
@@ -269,7 +262,7 @@ p {
 }
 
 .hero__phone--main {
-  transform: translateY(1.2rem);
+  transform: rotate(-2.5deg);
   z-index: 2;
 }
 
@@ -277,14 +270,56 @@ p {
   inline-size: 17rem;
 }
 
-.hero__phone--side {
-  opacity: 0.88;
-  transform: translateY(3rem);
+.hero__spark {
+  background: #f9e3cd;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  color: #9a5a30;
+  font-size: 0.82rem;
+  font-weight: 600;
+  inset-block-start: 1.4rem;
+  inset-inline-end: -0.6rem;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  white-space: nowrap;
+  z-index: 5;
 }
 
-.hero__phone--soft {
-  opacity: 0.7;
-  transform: translateY(-2rem);
+.hero__glass {
+  align-items: center;
+  backdrop-filter: blur(18px);
+  background: rgb(255 255 255 / 0.74);
+  border-radius: 1.4rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 0.7rem;
+  inset-block-end: 2.2rem;
+  inset-inline-start: -10.5rem;
+  max-inline-size: 15rem;
+  padding: 0.85rem 1rem;
+  position: absolute;
+  z-index: 5;
+}
+
+.hero__glass img {
+  block-size: auto;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  inline-size: 2.9rem;
+}
+
+.hero__glass p {
+  color: #1d2820;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.hero__glass b {
+  color: #43664d;
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
 }
 
 .hero__content {
@@ -805,8 +840,8 @@ p {
     position: absolute;
   }
 
-  .hero__phone--side,
-  .hero__phone--soft {
+  .hero__spark,
+  .hero__glass {
     display: none;
   }
 

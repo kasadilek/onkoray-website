@@ -40,6 +40,7 @@ const assetPath = (path: string) => `${basePath}${path}`;
 const ogImage = image ? new URL(image, canonicalURL).href : undefined;
 const ogLocale = locale.replace("-", "_");
 const fontUrl = assetPath("/assets/fonts/PlusJakartaSans.woff2");
+const carlitoUrl = assetPath("/assets/fonts/Carlito-700.woff2");
 ---
 
 <meta charset="UTF-8" />
@@ -61,7 +62,7 @@ const fontUrl = assetPath("/assets/fonts/PlusJakartaSans.woff2");
   href={assetPath("/assets/img/favicon.svg")}
 />
 <Fragment
-  set:html={`<style>@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:200 800;font-display:swap;src:url("${fontUrl}") format("woff2");}</style>`}
+  set:html={`<style>@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:200 800;font-display:swap;src:url("${fontUrl}") format("woff2");}@font-face{font-family:"Carlito";font-style:normal;font-weight:700;font-display:swap;src:url("${carlitoUrl}") format("woff2");}</style>`}
 />
 
 {noindex && <meta name="robots" content="noindex, nofollow" />}

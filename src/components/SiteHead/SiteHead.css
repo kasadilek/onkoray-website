@@ -24,11 +24,20 @@
   align-items: center;
   gap: 0.55rem;
   min-width: 8.75rem;
-  color: var(--sage);
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: 0;
   text-decoration: none;
+}
+
+/* Wordmark in brand font (Carlito ≙ Calibri), two-tone — matches the
+   business cards / MiniPitch: "Onko" dark green, "Ray" sage. */
+.site-logo__wm {
+  font-family: "Carlito", "Calibri", system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #2c4a36;
+}
+.site-logo__wm span {
+  color: #7da48a;
 }
 
 .site-logo img {
