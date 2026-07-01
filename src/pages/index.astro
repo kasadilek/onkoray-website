@@ -25,6 +25,7 @@ const imageMeta = {
     srcset: assetSrcset([
       ["/assets/optimized/dashboard-360.webp", "360w"],
       ["/assets/optimized/dashboard-640.webp", "640w"],
+      ["/assets/optimized/dashboard-960.webp", "960w"],
     ]),
     width: 1506,
     height: 1564,
@@ -43,6 +44,7 @@ const imageMeta = {
     srcset: assetSrcset([
       ["/assets/optimized/therapie-360.webp", "360w"],
       ["/assets/optimized/therapie-640.webp", "640w"],
+      ["/assets/optimized/therapie-960.webp", "960w"],
     ]),
     width: 1662,
     height: 1558,
@@ -52,6 +54,7 @@ const imageMeta = {
     srcset: assetSrcset([
       ["/assets/optimized/nachsorge-360.webp", "360w"],
       ["/assets/optimized/nachsorge-640.webp", "640w"],
+      ["/assets/optimized/nachsorge-960.webp", "960w"],
     ]),
     width: 922,
     height: 1576,
@@ -217,54 +220,38 @@ const faqs = [
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero__scene" aria-hidden="true">
       <div class="hero__media">
-        <div class="hero__phone hero__phone--side">
-          <picture>
-            <source
-              type="image/webp"
-              srcset={imageMeta.profil.srcset}
-              sizes="232px"
-            />
+        <div class="hero__visual">
+          <span class="hero__spark">✦ Bald verfügbar</span>
+          <div class="hero__phone hero__phone--main">
+            <picture>
+              <source
+                type="image/webp"
+                srcset={imageMeta.dashboard.srcset}
+                sizes="(max-width: 680px) 280px, 380px"
+              />
+              <img
+                src={imageMeta.dashboard.fallback}
+                alt=""
+                width={imageMeta.dashboard.width}
+                height={imageMeta.dashboard.height}
+                loading="eager"
+                fetchpriority="high"
+              />
+            </picture>
+          </div>
+          <div class="hero__glass">
             <img
-              src={imageMeta.profil.fallback}
+              src={imageMeta.tanteray.fallback}
               alt=""
-              width={imageMeta.profil.width}
-              height={imageMeta.profil.height}
+              width="48"
+              height="48"
               loading="eager"
             />
-          </picture>
-        </div>
-        <div class="hero__phone hero__phone--main">
-          <picture>
-            <source
-              type="image/webp"
-              srcset={imageMeta.dashboard.srcset}
-              sizes="(max-width: 680px) 216px, 272px"
-            />
-            <img
-              src={imageMeta.dashboard.fallback}
-              alt=""
-              width={imageMeta.dashboard.width}
-              height={imageMeta.dashboard.height}
-              loading="eager"
-              fetchpriority="high"
-            />
-          </picture>
-        </div>
-        <div class="hero__phone hero__phone--soft">
-          <picture>
-            <source
-              type="image/webp"
-              srcset={imageMeta.therapie.srcset}
-              sizes="232px"
-            />
-            <img
-              src={imageMeta.therapie.fallback}
-              alt=""
-              width={imageMeta.therapie.width}
-              height={imageMeta.therapie.height}
-              loading="eager"
-            />
-          </picture>
+            <p>
+              <b>TanteRay</b>„Ich gehe deinen Befund mit dir durch — ganz in
+              Ruhe.“
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -339,7 +326,7 @@ const faqs = [
     </div>
   </section>
 
-  <section class="section section--white" id="funktionen">
+  <section class="section section--surface" id="funktionen">
     <div class="site-wrap">
       {
         features.map((feature) => (
@@ -360,7 +347,7 @@ const faqs = [
                   <source
                     type="image/webp"
                     srcset={feature.image.srcset}
-                    sizes="304px"
+                    sizes="420px"
                   />
                   <img
                     src={feature.image.fallback}
